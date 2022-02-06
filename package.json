@@ -7,12 +7,18 @@
   "scripts": {
     "standard": "standard",
     "test": "jest --coverage --verbose --detectOpenHandles --forceExit",
-    "start": "moleculer-runner --repl --hot --config moleculer.config.js services"
+    "start:1": "APP_NODE_NAME=nomad-server-1 moleculer-runner --repl --hot --config moleculer.config.js services",
+    "start:2": "APP_NODE_NAME=nomad-client-1 moleculer-runner --repl --hot --config moleculer.config.js services"
   },
   "dependencies": {
+    "anzip": "0.2.0",
+    "async-get-file": "1.0.4",
+    "exec-sh": "0.4.0",
+    "fs-extra": "10.0.0",
     "moleculer": "0.14.19",
     "moleculer-repl": "0.7.0",
     "moleculer-web": "0.10.4",
+    "mustache": "4.2.0",
     "nats": "2.6.0",
     "nconf": "0.11.3",
     "uuid": "8.3.2"

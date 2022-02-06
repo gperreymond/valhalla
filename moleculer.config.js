@@ -1,11 +1,13 @@
 
-const { v4: uuidv4 } = require('uuid')
+const { node: { name, datacenter },  moleculer: { transporter, metrics } } = require('./application.config')
 
-const { name, version } = require('./package.json')
-const { moleculer: { transporter, metrics } } = require('./application.config')
+process.on('exit', () => {
+  console.log('==============> NOMAD process', global.APP_NOMAD_PID)
+  process.kill(global.APP_NOMAD_PID)
+})
 
 module.exports = {
-  nodeID: `node-${name}-${version}-${uuidv4()}`,
+  nodeID: `node-${name}-${datacenter}`,
   logger: true,
   transporter,
   metrics: {

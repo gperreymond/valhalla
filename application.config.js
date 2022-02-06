@@ -14,6 +14,8 @@ if (nconf.get('APP_NATS_PORT')) { APP_NATS_PORT = parseInt(nconf.get('APP_NATS_P
 // ************************************
 
 const APP_ENVIRONMENT = nconf.get('APP_ENVIRONMENT') || 'development'
+const APP_NODE_NAME = nconf.get('APP_NODE_NAME') || 'localhost'
+const APP_NODE_DATACENTER = nconf.get('APP_NODE_DATACENTER') || 'datacenter'
 
 const APP_RETHINKDB_HOSTNAME = nconf.get('APP_RETHINKDB_HOSTNAME') || 'localhost'
 const APP_RETHINKDB_USERNAME = nconf.get('APP_RETHINKDB_USERNAME') || 'infra'
@@ -25,6 +27,10 @@ const APP_NATS_PASSWORD = nconf.get('APP_NATS_PASSWORD') || 'changeme'
 
 module.exports = {
   environment: APP_ENVIRONMENT,
+  node: {
+    name: APP_NODE_NAME,
+    datacenter: APP_NODE_DATACENTER
+  },
   moleculer: {
     metrics: {
       enabled: APP_MOLECULER_METRICS_ENABLED,
