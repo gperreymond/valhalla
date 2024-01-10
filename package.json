@@ -7,24 +7,31 @@
   "scripts": {
     "standard": "standard",
     "test": "jest --coverage --verbose --detectOpenHandles --forceExit",
-    "start:1": "APP_NODE_NAME=nomad-server-1 moleculer-runner --repl --hot --config moleculer.config.js services",
-    "start:2": "APP_NODE_NAME=nomad-client-1 moleculer-runner --repl --hot --config moleculer.config.js services"
+    "start:dev": "APP_NODE_MODE=server moleculer-runner --repl --hot --config moleculer.config.js services",
+    "bundle": "pkg . -t host --out-path dist/"
   },
   "dependencies": {
-    "anzip": "0.2.0",
-    "async-get-file": "1.0.4",
     "exec-sh": "0.4.0",
-    "fs-extra": "10.0.0",
-    "moleculer": "0.14.19",
-    "moleculer-repl": "0.7.0",
-    "moleculer-web": "0.10.4",
+    "fs-extra": "11.2.0",
+    "moleculer": "0.14.32",
+    "moleculer-repl": "0.7.4",
+    "moleculer-web": "0.10.7",
     "mustache": "4.2.0",
-    "nats": "2.6.0",
-    "nconf": "0.11.3",
-    "uuid": "8.3.2"
+    "nats": "2.18.0",
+    "nconf": "0.12.1",
+    "uuid": "9.0.1"
   },
   "devDependencies": {
-    "jest": "27.5.0",
-    "standard": "16.0.4"
+    "jest": "29.7.0",
+    "pkg": "5.8.1",
+    "standard": "17.1.0"
+  },
+  "bin": "start.js",
+  "pkg": {
+    "scripts": [
+      "application.config.js",
+      "moleculer.config.js",
+      "services/**/*.*"
+    ]
   }
 }

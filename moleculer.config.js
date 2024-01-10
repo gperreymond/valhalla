@@ -1,13 +1,7 @@
-
-const { node: { name, datacenter },  moleculer: { transporter, metrics } } = require('./application.config')
-
-process.on('exit', () => {
-  console.log('==============> NOMAD process', global.APP_NOMAD_PID)
-  process.kill(global.APP_NOMAD_PID)
-})
+const { moleculer: { transporter, metrics } } = require('./application.config')
 
 module.exports = {
-  nodeID: `node-${name}-${datacenter}`,
+  nodeID: `node-${Date.now()}`,
   logger: true,
   transporter,
   metrics: {

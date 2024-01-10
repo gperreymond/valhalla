@@ -1,15 +1,15 @@
-version: "3.7"
+version: '3.9'
 
 services:
 
   nats:
-    image: "nats:2.3.2-alpine"
+    image: 'nats:2.10.7-alpine3.18'
     networks:
-    - "public"
+    - 'public'
     ports:
-    - "4222:4222/tcp"
+    - '4222:4222/tcp'
 
 networks:
 
   public:
-    name: "public"
+    name: 'public'
